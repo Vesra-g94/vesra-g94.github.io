@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Installing Pix'n Portal on Batocera — requirements, browser support, Full vs Lite, and RGS setup.">
+  <meta name="theme-color" content="#0b0c0e">
+  <title>Installing Pix’n Portal on Batocera | Vesra's Workshop</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <nav class="nav wrap">
+    <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/vesra-logo.png" alt="Vesra logo"> <span>VESRA'S WORKSHOP</span></a>
+    <div class="navlinks"><a href="../index.html#projects">Projects</a><a href="../index.html#guides">Guides</a><a href="../index.html#downloads">Downloads</a><a href="../index.html#about">About</a></div>
+  </nav>
+
+  <header class="article-hero">
+    <div class="wrap article-shell">
+      <a class="breadcrumb" href="../index.html#guides">← Back to Guides</a>
+      <p class="eyebrow">VESRA'S WORKSHOP GUIDE</p>
+      <h1>Installing Pix’n Portal on Batocera</h1>
+      <p class="lede">Pix’n Portal is a lightweight launcher for accessing the Team Pixel Nostalgia portal directly from Batocera through an existing RGS installation.</p>
+    </div>
+  </header>
+
+  <main class="wrap article-shell article-body">
+    <p>Pix’n Portal is designed to integrate with an existing RGS installation and launch the portal through a supported web browser without requiring the user to leave the normal Batocera interface.</p>
+
+    <h2>Full and Lite Builds</h2>
+    <p><strong>Pix’n Portal Full</strong> includes the browser setup along with the optional qBittorrent installation prompt.</p>
+    <p><strong>Pix’n Portal Lite</strong> removes the qBittorrent portion and is intended for systems where only portal access is needed.</p>
+
+    <h2>Requirements</h2>
+    <p>Before installing Pix’n Portal, make sure:</p>
+    <ul>
+      <li>Batocera is installed and working.</li>
+      <li>RGS is installed.</li>
+      <li>Your RGS <code>.api</code> files are located in:</li>
+    </ul>
+    <code class="codeblock">/userdata/rgs/download_services</code>
+    <p>Pix’n Portal depends on RGS for the actual portal content and download services.</p>
+
+    <h2>Browser Support</h2>
+    <p>Pix’n Portal checks the system for a compatible browser. If a supported browser is not already installed, the launcher can assist with installing one.</p>
+    <p>The launcher has been successfully tested with both Chrome and Firefox.</p>
+
+    <h2>Installation</h2>
+    <p>Place the Pix’n Portal launcher package on the Batocera system and extract it while preserving Linux permissions.</p>
+    <p>The launcher itself belongs in the Batocera Ports environment so it can be started directly from EmulationStation.</p>
+    <p>After installation, refresh the game list or restart EmulationStation if the new entry does not appear immediately.</p>
+
+    <h2>First Launch</h2>
+    <p>Launch <strong>Pix’n Portal</strong> from the Ports collection.</p>
+    <p>On the first run, the launcher will:</p>
+    <ol>
+      <li>Check for an available browser.</li>
+      <li>Offer to install one if necessary.</li>
+      <li>Launch the Pix’n Portal website.</li>
+      <li>Hand supported content off to the installed RGS system.</li>
+    </ol>
+    <p>The Full version may also offer to install qBittorrent.</p>
+
+    <h2>Which Build Should You Use?</h2>
+    <p>Use <strong>Full</strong> if you want the optional qBittorrent setup included.</p>
+    <p>Use <strong>Lite</strong> if you already have everything you need or simply want the smallest possible launcher.</p>
+    <p>Both versions provide the same core Pix’n Portal experience.</p>
+
+    <h2>Notes</h2>
+    <p>RGS updates may replace or remove custom runtime components installed outside the normal RGS environment. Your ROM files are not affected, but custom configuration or runtime files may occasionally need to be restored.</p>
+
+    <div class="article-nav">
+      <a class="button" href="https://github.com/Vesra-g94/pixn-portal-full" target="_blank" rel="noopener">Pix’n Portal Full ↗</a>
+      <a class="button" href="https://github.com/Vesra-g94/pixn-portal-lite" target="_blank" rel="noopener">Pix’n Portal Lite ↗</a>
+    </div>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span>Vesra's Workshop</span><a href="../index.html">Home</a><span>If it runs, ship it.</span></div></footer>
+</body>
+</html>
