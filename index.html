@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Vesra's Workshop — Batocera projects, launchers, guides, downloads, and experiments.">
+  <meta name="description" content="Vesra's Workshop — Batocera projects, launchers, guides, downloads, and experiments built for handhelds and Linux gaming.">
+  <meta name="theme-color" content="#0b0c0e">
   <title>Vesra's Workshop</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="hero">
+  <header class="hero" id="top">
     <nav class="nav wrap">
-      <a class="brand" href="#top">VESRA'S WORKSHOP</a>
+      <a class="brand" href="#top"><span class="brand-v">V</span> VESRA'S WORKSHOP</a>
       <div class="navlinks">
         <a href="#projects">Projects</a>
         <a href="#guides">Guides</a>
@@ -19,86 +20,143 @@
       </div>
     </nav>
 
-    <div id="top" class="hero-content wrap">
+    <div class="hero-content wrap">
       <p class="eyebrow">BATOCERA • LINUX • HANDHELDS • SSH</p>
       <h1>VESRA'S<br><span>WORKSHOP</span></h1>
       <p class="tagline">If it runs, ship it.<br><strong>If it doesn't, it WILL be SSH'ed.</strong></p>
       <div class="actions">
         <a class="button primary" href="#projects">See the projects</a>
-        <a class="button" href="#downloads">Downloads</a>
+        <a class="button" href="https://github.com/Vesra-g94" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
+
+    <a class="scroll-cue" href="#projects" aria-label="Scroll to projects">↓</a>
   </header>
 
   <main>
     <section id="projects" class="section wrap">
-      <div class="section-heading">
-        <p class="eyebrow">BUILT IN THE WORKSHOP</p>
-        <h2>Projects</h2>
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">BUILT IN THE WORKSHOP</p>
+          <h2>Projects</h2>
+        </div>
+        <p class="section-copy">Launchers, scripts, Batocera experiments and fixes that made it off the bench.</p>
       </div>
 
-      <div class="grid cards">
-        <article class="card featured">
-          <div class="badge">FEATURED</div>
+      <article class="project-hero">
+        <div class="project-hero-copy">
+          <div class="badge">FEATURED PROJECT</div>
           <h3>Pix'n Portal Launcher</h3>
-          <p>A Batocera/RGS ports-menu launcher for Team Pixel Nostalgia's Pix'n Portal, with browser detection and a lightweight handheld-friendly build.</p>
-          <span class="status">Shipped</span>
+          <p>A Batocera/RGS ports-menu launcher for Team Pixel Nostalgia's Pix'n Portal. Built to get from EmulationStation to the portal without turning the handheld into a desktop project.</p>
+          <div class="project-tags">
+            <span>Batocera</span><span>RGS</span><span>Linux</span><span>Handhelds</span>
+          </div>
+          <div class="actions compact">
+            <a class="button primary" href="https://github.com/Vesra-g94/pixn-portal-full" target="_blank" rel="noopener">Full build</a>
+            <a class="button" href="https://github.com/Vesra-g94/pixn-portal-lite" target="_blank" rel="noopener">Lite build</a>
+          </div>
+        </div>
+        <div class="project-mark" aria-hidden="true">P<span>×</span>P</div>
+      </article>
+
+      <div class="grid cards">
+        <article class="card">
+          <div class="card-topline"><span class="mini-badge">UTILITY</span><span class="status">SHIPPED</span></div>
+          <h3>qBittorrent Launcher</h3>
+          <p>A Batocera launcher package for opening qBittorrent from the Ports menu instead of digging through the F1 desktop.</p>
+          <a class="text-link" href="https://github.com/Vesra-g94/qBittorrent-launcher" target="_blank" rel="noopener">View project →</a>
         </article>
 
         <article class="card">
+          <div class="card-topline"><span class="mini-badge">GAMES</span><span class="status">ONGOING</span></div>
           <h3>Batocera Ports</h3>
-          <p>Native Linux and Wine/Proton game experiments, launcher scripts, packaging, runtime testing, and fixes.</p>
-          <span class="status">Ongoing</span>
+          <p>Native Linux and Wine/Proton game experiments, launch scripts, packaging work, runtime testing, and fixes.</p>
+          <span class="text-muted">More project pages coming.</span>
         </article>
 
         <article class="card">
-          <h3>Workshop Tools</h3>
-          <p>Small scripts and utilities made to make Batocera setup, packaging, launching, and troubleshooting easier.</p>
-          <span class="status">Growing</span>
+          <div class="card-topline"><span class="mini-badge">TOOLS</span><span class="status">GROWING</span></div>
+          <h3>Workshop Scripts</h3>
+          <p>Small tools made because doing the same thing by hand twice is one time too many.</p>
+          <span class="text-muted">More releases coming.</span>
         </article>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="wrap manifesto-inner">
+        <p>TEST IT.</p><span>→</span><p>BREAK IT.</p><span>→</span><p>SSH IT.</p><span>→</span><p>SHIP IT.</p>
       </div>
     </section>
 
     <section id="guides" class="section section-dark">
       <div class="wrap">
-        <div class="section-heading">
-          <p class="eyebrow">NOTES FROM THE BENCH</p>
-          <h2>Guides</h2>
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">NOTES FROM THE BENCH</p>
+            <h2>Guides</h2>
+          </div>
+          <p class="section-copy">The useful part of the troubleshooting: what worked, what failed, and the commands worth keeping.</p>
         </div>
-        <div class="grid two">
-          <div class="panel">
-            <h3>Batocera SSH</h3>
-            <p>Commands, troubleshooting notes, file permissions, packaging, and the fixes that actually worked.</p>
-          </div>
-          <div class="panel">
-            <h3>Wine & Proton</h3>
-            <p>Runner selection, prefixes, Windows game layouts, native Linux ports, and handheld testing.</p>
-          </div>
+
+        <div class="grid guide-grid">
+          <article class="panel numbered">
+            <span class="number">01</span>
+            <h3>Batocera + SSH</h3>
+            <p>Remote access, file permissions, package layouts, shell commands, and fixing things without leaving EmulationStation.</p>
+          </article>
+          <article class="panel numbered">
+            <span class="number">02</span>
+            <h3>Wine + Proton</h3>
+            <p>Custom runners, prefixes, Windows game folders, launch targets, and getting stubborn titles to behave.</p>
+          </article>
+          <article class="panel numbered">
+            <span class="number">03</span>
+            <h3>Native Linux Ports</h3>
+            <p>Libraries, wrappers, launch scripts, environment variables, and keeping native builds native whenever possible.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="downloads" class="section wrap">
-      <div class="section-heading">
-        <p class="eyebrow">SHIP IT</p>
-        <h2>Downloads</h2>
-      </div>
-      <div class="download-box">
+      <div class="section-heading split-heading">
         <div>
-          <h3>Workshop releases will live here.</h3>
-          <p>GitHub Releases can hold your downloadable scripts and packages while this page gives people a clean place to find them.</p>
+          <p class="eyebrow">SHIP IT</p>
+          <h2>Downloads</h2>
         </div>
-        <a class="button primary disabled" href="#" aria-disabled="true">Releases coming soon</a>
+        <p class="section-copy">The website points to the source. GitHub stays the home for project files and releases.</p>
+      </div>
+
+      <div class="download-grid">
+        <a class="download-card" href="https://github.com/Vesra-g94/pixn-portal-full" target="_blank" rel="noopener">
+          <span class="download-icon">↓</span>
+          <div><strong>Pix'n Portal — Full</strong><small>Full launcher build</small></div>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="download-card" href="https://github.com/Vesra-g94/pixn-portal-lite" target="_blank" rel="noopener">
+          <span class="download-icon">↓</span>
+          <div><strong>Pix'n Portal — Lite</strong><small>Handheld-friendly build</small></div>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="download-card" href="https://github.com/Vesra-g94/qBittorrent-launcher" target="_blank" rel="noopener">
+          <span class="download-icon">↓</span>
+          <div><strong>qBittorrent Launcher</strong><small>Batocera Ports launcher</small></div>
+          <span class="arrow">↗</span>
+        </a>
       </div>
     </section>
 
     <section id="about" class="section section-dark">
       <div class="wrap about">
         <div>
-          <p class="eyebrow">ABOUT</p>
+          <p class="eyebrow">ABOUT THE WORKSHOP</p>
           <h2>Built by tinkering.</h2>
         </div>
-        <p>Vesra's Workshop is a home for Batocera experiments, handheld projects, launchers, ports, guides, and whatever else survives the SSH treatment.</p>
+        <div>
+          <p>Vesra's Workshop is a home for Batocera experiments, handheld projects, launchers, ports, guides, and whatever else survives the SSH treatment.</p>
+          <p class="about-small">The rule is simple: test on the bench, keep what works, document it, and ship it.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -106,6 +164,7 @@
   <footer>
     <div class="wrap footer-inner">
       <span>© <span id="year"></span> Vesra's Workshop</span>
+      <a href="https://github.com/Vesra-g94" target="_blank" rel="noopener">github.com/Vesra-g94</a>
       <span>If it runs, ship it.</span>
     </div>
   </footer>
