@@ -394,3 +394,19 @@ footer { padding: 28px 0; }
 .article-nav { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; margin-top:56px; padding-top:28px; border-top:1px solid var(--line); }
 .breadcrumb { color:var(--orange); font-weight:800; }
 @media (max-width: 760px) { .article-hero { padding-top:120px; } .article-body { padding-top:44px; } }
+
+
+.video-button {
+  border-color: rgba(255, 122, 0, .45);
+}
+.video-button:hover {
+  border-color: var(--orange);
+}
+.video-credit {
+  margin-top: 12px;
+  font-size: .9rem;
+  color: var(--muted2);
+}
+.video-credit strong {
+  color: #fff;
+}
