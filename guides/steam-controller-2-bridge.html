@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steam Controller 2 Bridge for Batocera | Vesra's Workshop</title>
+  <meta name="description" content="Experimental userspace Bluetooth support for the Steam Controller 2 on Batocera.">
+  <style>
+    :root {
+      --bg: #111;
+      --panel: #1b1b1b;
+      --panel2: #232323;
+      --text: #f4f4f4;
+      --muted: #b9b9b9;
+      --accent: #ff7a00;
+      --border: #343434;
+      --code: #0d0d0d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(100% - 32px, 980px);
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 22px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .back:hover { text-decoration: underline; }
+
+    .hero {
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 26px;
+    }
+
+    h1, h2 { line-height: 1.2; }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-top: 34px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 11px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 18px 0;
+    }
+
+    ul { padding-left: 22px; }
+
+    code {
+      font-family: Consolas, "Liberation Mono", monospace;
+    }
+
+    pre {
+      overflow-x: auto;
+      background: var(--code);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      color: #fff;
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      padding-left: 16px;
+    }
+
+    footer {
+      margin-top: 48px;
+      color: var(--muted);
+      font-size: .95rem;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    strong { color: #fff; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="../index.html">&larr; Back to Vesra's Workshop</a>
+
+    <section class="hero">
+      <h1>Steam Controller 2 Bridge for Batocera</h1>
+      <p class="muted">
+        Experimental userspace Bluetooth support for the Steam Controller 2 on Batocera.
+      </p>
+      <span class="status">WORK IN PROGRESS</span>
+    </section>
+
+    <section class="card">
+      <h2>Current Status</h2>
+      <p>
+        Working on <strong>Frankendeck</strong>.
+      </p>
+      <p>
+        Batocera detects the Steam Controller 2 over Bluetooth as Valve device
+        <code>28DE:1303</code>, but the current <code>hid-steam</code> driver does not
+        bind to that product ID.
+      </p>
+      <p>
+        Linux still exposes the controller's raw Bluetooth HID reports, so this project
+        reads those reports directly and converts them into a normal virtual Linux
+        gamepad using <code>uinput</code> and <code>python-evdev</code>.
+      </p>
+      <p><strong>No kernel modification is required.</strong></p>
+    </section>
+
+    <h2>How It Works</h2>
+    <pre><code>Steam Controller 2
+        |
+        | Bluetooth
+        v
+raw HID device
+        |
+        v
+sc2bridge.py
+        |
+        | uinput / evdev
+        v
+virtual Linux gamepad
+        |
+        v
+Batocera / EmulationStation / emulators</code></pre>
+
+    <p class="note">
+      The bridge also temporarily grabs the controller's native Bluetooth keyboard
+      and mouse fallback interfaces while running. This prevents those inputs from
+      interfering with Batocera controller mapping.
+    </p>
+
+    <h2>Currently Working</h2>
+    <div class="card">
+      <ul>
+        <li>A / B / X / Y</li>
+        <li>D-pad</li>
+        <li>LB / RB</li>
+        <li>L3 / R3</li>
+        <li>View</li>
+        <li>Menu</li>
+        <li>Steam button</li>
+        <li>Left analog stick</li>
+        <li>Right analog stick</li>
+        <li>Left analog trigger</li>
+        <li>Right analog trigger</li>
+        <li>Stick dead zones</li>
+        <li>Automatic detection of the Steam Controller 2 HID device</li>
+      </ul>
+      <p>
+        The controller can currently be configured and used as a standard gamepad in Batocera.
+      </p>
+    </div>
+
+    <h2>Not Yet Implemented</h2>
+    <div class="card">
+      <ul>
+        <li>Rear buttons</li>
+        <li>QAM button</li>
+        <li>Trackpads</li>
+        <li>Gyroscope</li>
+        <li>Rumble / haptics</li>
+        <li>Automatic installation</li>
+        <li>Automatic startup</li>
+      </ul>
+      <p>These are planned for later development.</p>
+    </div>
+
+    <h2>Current Files</h2>
+    <pre><code>sc2bridge.py
+start-sc2bridge.sh
+stop-sc2bridge.sh
+README.txt</code></pre>
+
+    <p>
+      The start script launches the bridge in the background, so an SSH session does
+      <strong>not</strong> need to remain open while using the controller.
+    </p>
+
+    <h2>Current Install Location</h2>
+    <pre><code>/userdata/system/sc2bridge.py
+/userdata/system/start-sc2bridge.sh
+/userdata/system/stop-sc2bridge.sh</code></pre>
+
+    <h3>Start</h3>
+    <pre><code>/userdata/system/start-sc2bridge.sh</code></pre>
+
+    <h3>Stop</h3>
+    <pre><code>/userdata/system/stop-sc2bridge.sh</code></pre>
+
+    <h2>Requirements</h2>
+    <div class="card">
+      <ul>
+        <li>Batocera</li>
+        <li>Steam Controller 2 paired over Bluetooth</li>
+        <li>Python 3</li>
+        <li><code>python-evdev</code></li>
+        <li>Linux <code>uinput</code></li>
+      </ul>
+    </div>
+
+    <h2>Project Status</h2>
+    <p>
+      This is an <strong>experimental work-in-progress</strong>.
+    </p>
+    <p>
+      The primary goal of the first stage was to prove that the Steam Controller 2 could
+      operate as a normal Bluetooth gamepad in Batocera without modifying or rebuilding
+      the kernel.
+    </p>
+    <p><strong>That goal has now been achieved.</strong></p>
+
+    <footer>
+      Vesra's Workshop &mdash; If it runs, ship it. If it doesn't, it WILL be SSH'ed.
+    </footer>
+  </main>
+</body>
+</html>
