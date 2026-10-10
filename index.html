@@ -85,12 +85,13 @@
 
       <article class="project-hero" aria-label="Current active project">
         <div class="project-hero-copy">
-          <div class="badge">ACTIVE DEVELOPMENT</div>
-          <h3>Steam Controller 2 Bridge for Batocera</h3>
-          <p>Experimental userspace Bluetooth support for the Steam Controller 2 on Batocera. The current bridge reads the controller's raw Bluetooth HID reports and converts them into a standard virtual Linux gamepad using uinput and python-evdev.</p>
-          <p>Standard gamepad controls are now working in Batocera without modifying or rebuilding the kernel.</p>
+          <div class="badge">ACTIVE DEVELOPMENT · v0.8.0</div>
+          <h3>Steam Controller 2 for Batocera</h3>
+          <p>A userspace Bluetooth bridge that gives the Steam Controller 2 full virtual gamepad support in Batocera without rebuilding or patching the kernel.</p>
+          <p>v0.8.0 adds a dedicated virtual mouse: the right trackpad controls pointer movement, while physical clicks on the left or right half of the left trackpad act as left and right mouse buttons. Standard controls, extra buttons, rumble, and automatic Bluetooth reconnect remain intact.</p>
+          <p>Bluetooth HID <strong>28DE:1303</strong> has been independently confirmed on two separate Steam Controller 2 units, and normal controller operation has now passed testing on a second controller.</p>
           <div class="project-tags">
-            <span>Batocera</span><span>Bluetooth</span><span>Python</span><span>uinput</span>
+            <span>Batocera v43</span><span>Bluetooth</span><span>Gamepad + Mouse</span><span>FF Rumble</span><span>Python</span><span>uinput</span>
           </div>
           <div class="actions compact">
             <a class="button primary" href="guides/steam-controller-2-bridge.html">Project progress</a>
@@ -98,20 +99,6 @@
           </div>
         </div>
         <div class="project-mark" aria-hidden="true">SC<span>2</span></div>
-      </article>
-
-      <article class="project-hero" aria-label="Parasite Eve recompilation progress">
-        <div class="project-hero-copy">
-          <div class="badge">WORK IN PROGRESS</div>
-          <h3>Parasite Eve Recomp</h3>
-          <p>I’ve started a native recompilation project for the PlayStation version of <em>Parasite Eve</em> using PSXRecomp. Both discs are registered, and the first Windows build compiles, boots, and runs early gameplay. FMV video plays well, though the audio occasionally stutters on the underpowered NUC I’m using for development.</p>
-          <p>Next I’ll test more gameplay and saving, including whether a shared save can bridge the disc transition. I’ll also explore an automatic switch that keeps the game running when it requests Disc 2, then work toward a Linux build for Batocera. The toolkit currently selects a disc before launch but does not yet support mid-session swapping.</p>
-          <p>This is an early local project. There’s no repository or release yet.</p>
-          <div class="project-tags">
-            <span>PlayStation</span><span>PSXRecomp</span><span>Native build</span><span>Batocera goal</span>
-          </div>
-        </div>
-        <div class="project-mark" aria-hidden="true">P<span>E</span></div>
       </article>
 
       <div class="repo-grid">
@@ -137,9 +124,9 @@
         </a>
 
         <a class="repo-card" href="https://github.com/Vesra-g94/Steam-Controller-2-for-batocera" target="_blank" rel="noopener">
-          <div class="repo-card-top"><span class="mini-badge">STEAM CONTROLLER 2</span><span class="status">ACTIVE</span></div>
+          <div class="repo-card-top"><span class="mini-badge">STEAM CONTROLLER 2</span><span class="status">v0.8.0</span></div>
           <h3>Steam Controller 2 for Batocera</h3>
-          <p>A userspace Bluetooth bridge that turns the Steam Controller 2's raw HID reports into a standard virtual Linux gamepad for Batocera.</p>
+          <p>Userspace Bluetooth gamepad support with rumble, extra buttons, automatic reconnect, right-trackpad mouse movement, and left-pad mouse clicks.</p>
           <div class="repo-footer"><span>Open repository</span><span class="repo-arrow">↗</span></div>
         </a>
       </div>
@@ -215,7 +202,7 @@
 
         <a class="download-card" href="https://github.com/Vesra-g94/Steam-Controller-2-for-batocera" target="_blank" rel="noopener">
           <span class="download-icon">↓</span>
-          <div><strong>Steam Controller 2 for Batocera</strong><small>Active project repository & files</small></div>
+          <div><strong>Steam Controller 2 for Batocera</strong><small>v0.8.0 · gamepad, rumble, mouse controls & test data</small></div>
           <span class="arrow">↗</span>
         </a>
       </div>
